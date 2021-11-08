@@ -3,24 +3,105 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
+    <!-- Background image -->
+    <div id="intro" class="bg-image shadow-2-strong">
+      <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-xl-5 col-md-8">
+                {% for flashError in app.flashes('verify_email_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                {% endfor %}
+                {{ form_start(registrationForm,{'attr': {'class' : 'bg-white rounded shadow-5-strong p-5'}}) }}
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    {{ form_widget(registrationForm.prenom,{'attr':{'class' : 'form-control'}}) }}
+                    <label class="form-label" for="form3Example1">First name</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    {{ form_widget(registrationForm.nom,{'attr':{'class' : 'form-control'}}) }}
+                    <label class="form-label" for="form3Example2">Last name</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Email input -->
+              <div class="form-outline mb-4">
+                {{ form_widget(registrationForm.email,{'attr':{'class' : 'form-control'}}) }}
+                <label class="form-label" for="form3Example3">Email address</label>
+              </div>
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row mb-4">
+                <div class="col">
+                  <div class="form-outline">
+                    {{ form_widget(registrationForm.date_naissance,{'attr':{'class' : 'form-control'}}) }}
+                    <label class="form-label" for="form3Example1">Birthday</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    {{ form_widget(registrationForm.phone,{'attr':{'class' : 'form-control','type':'text'}}) }}
+                    <label class="form-label" for="form3Example2">phone</label>
+                  </div>
+                </div>
+              </div>
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+               {{ form_widget(registrationForm.plainPassword,{'attr':{'class' : 'form-control'}}) }}
+                <label class="form-label" for="form3Example4">Password</label>
+              </div>
+
+              <!-- Checkbox -->
+              <div class="form-check d-flex justify-content-center mb-4">
+                {{ form_widget(registrationForm.agreeTerms,{'attr':{'class' : 'form-control'}}) }}
+                <label class="form-check-label" for="form2Example3">
+                  Subscribe to our newsletter
+                </label>
+              </div>
+
+              <!-- Submit button -->
+              <button type="submit" class="btn btn-primary btn-block mb-4">
+                Sign up
+              </button>
+
+              <!-- Register buttons -->
+              <div class="text-center">
+                <p>or sign up with:</p>
+                <button type="button" class="btn btn-primary btn-floating mx-1">
+                  <i class="fab fa-facebook-f"></i>
+                </button>
+
+                <button type="button" class="btn btn-primary btn-floating mx-1">
+                  <i class="fab fa-google"></i>
+                </button>
+
+                <button type="button" class="btn btn-primary btn-floating mx-1">
+                  <i class="fab fa-twitter"></i>
+                </button>
+
+                <button type="button" class="btn btn-primary btn-floating mx-1">
+                  <i class="fab fa-github"></i>
+                </button>
+              </div>
+            {{ form_end(registrationForm) }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Background image -->
+  </header>
+  <!--Main Navigation-->
+<!--
+
+
     {% for flashError in app.flashes('verify_email_error') %}
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
     {% endfor %}
-
-    <h1>Register</h1>
-
-    {{ form_start(registrationForm) }}
-        
-        {{ form_row(registrationForm.nom) }}
-        {{ form_row(registrationForm.prenom) }}
-        {{ form_row(registrationForm.date_naissance) }}
-        {{ form_row(registrationForm.phone) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+-->
+    
 {% endblock %}
