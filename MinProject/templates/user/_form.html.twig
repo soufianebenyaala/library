@@ -1,4 +1,58 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<section style="background-color: #eee;">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col">
+                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+                  <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">User</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit Profile</li>
+                  </ol>
+                </nav>
+             </div>
+        </div>
+
+        <div class="row justify-content-md-center">
+            <div class="col">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        {{ form_start(form) }}
+                            <div class="row mb-4">
+                              <div class="col">
+                                <div class="form-outline">
+                                  {{ form_widget(form.nom,{'attr':{'class' : 'form-control'}}) }}
+                                  <label class="form-label" for="form3Example1">First name</label>
+                                </div>
+                              </div>
+                              <div class="col">
+                                <div class="form-outline">
+                                  {{ form_widget(form.prenom,{'attr':{'class' : 'form-control'}}) }}
+                                  <label class="form-label" for="form3Example2">Last name</label>
+                                </div>
+                              </div>
+                            </div>                        
+                            <div class="form-outline mb-4">
+                             {{ form_widget(form.date_naissance,{'attr':{'class' : 'form-control'}}) }}
+                              <label class="form-label" for="form3Example3">Birthday</label>
+                            </div>                            
+                            <div class="form-outline mb-4">
+                               {{ form_widget(form.phone,{'attr':{'class' : 'form-control','type':'text'}}) }}
+                              <label class="form-label" for="form3Example3">phone</label>
+                            </div>
+
+
+                           
+                            
+                            <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

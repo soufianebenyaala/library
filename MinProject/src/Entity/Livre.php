@@ -323,6 +323,6 @@ class Livre
 
     public function __toString()
     {
-        return $this->id." - ".$this->titre." - ".$this->auteur;
+        return $this->id." - ".$this->titre;
     }
 }

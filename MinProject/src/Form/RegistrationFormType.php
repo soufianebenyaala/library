@@ -3,9 +3,9 @@
 namespace App\Form;
 
 use App\Entity\User;
-use Doctrine\DBAL\Types\DateType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -47,7 +47,9 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('nom')
             ->add('prenom')
-            ->add('date_naissance')
+            ->add('date_naissance',DateType::class,[
+                'widget'=>'single_text'
+            ])
             ->add('phone')
         ;
     }

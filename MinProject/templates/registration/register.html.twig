@@ -39,7 +39,7 @@
                 <div class="col">
                   <div class="form-outline">
                     {{ form_widget(registrationForm.date_naissance,{'attr':{'class' : 'form-control'}}) }}
-                    <label class="form-label" for="form3Example1">Birthday</label>
+                    {{ form_label(registrationForm.date_naissance, 'Your Name', {'label_attr': {'class': 'form-label'}}) }}
                   </div>
                 </div>
                 <div class="col">
@@ -54,15 +54,23 @@
                {{ form_widget(registrationForm.plainPassword,{'attr':{'class' : 'form-control'}}) }}
                 <label class="form-label" for="form3Example4">Password</label>
               </div>
-
-              <!-- Checkbox -->
-              <div class="form-check d-flex justify-content-center mb-4">
-                {{ form_widget(registrationForm.agreeTerms,{'attr':{'class' : 'form-control'}}) }}
-                <label class="form-check-label" for="form2Example3">
-                  Subscribe to our newsletter
-                </label>
-              </div>
-
+              
+              <!-- 2 column grid layout for inline styling -->
+                <div class="row mb-4">
+                  <div class="col d-flex justify-content-between">
+                    <!-- Checkbox -->
+                    <div class="col-4">
+                    <div class="form-check">
+                      {{ form_widget(registrationForm.agreeTerms,{'attr':{'class' : 'form-check-input'}}) }}
+                      {{ form_label(registrationForm.agreeTerms,null,{'label_attr':{'class' : 'form-check-label'}}) }}
+                    </div>
+                     </div>
+                    <div class="col-6 text-center">
+                          <!-- Simple link -->
+                          <a href="{{ path('app_login') }}">already have an account?</a>
+                    </div>
+                  </div>
+                </div>
               <!-- Submit button -->
               <button type="submit" class="btn btn-primary btn-block mb-4">
                 Sign up
