@@ -22,7 +22,7 @@
           <div class="card mb-4">
             <div class="card-body text-center">
               {% if user.photo %}
-                  <img src="{{asset(user.photo)}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                  <img src="/images/users/{{asset(user.photo)}}" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
               {% else %}
                   <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-chat/ava3.png" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
               {% endif %}

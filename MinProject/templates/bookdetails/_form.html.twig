@@ -1,0 +1,35 @@
+{{ form_start(form) }}
+   
+    
+
+
+<div class="row mb-4">
+    <div class="col">
+        <div class="form-outline">
+          <input type="text" id="form6Example1" class="form-control" />
+          <label class="form-label" for="form6Example1">name</label>
+        </div>
+    </div>
+    <div class="col">
+        <div class="form-outline">
+          <input type="text" id="form6Example2" class="form-control" />
+          <label class="form-label" for="form6Example2">Email address</label>
+        </div>
+    </div>
+</div>
+<div class="form-outline  mb-4">
+    {{ form_widget(form.rate,{'attr':{'class' : 'form-control','rows':'5'}}) }}
+    <label class="form-label" for="form6Example2">Rating</label>
+ </div>
+    
+      
+<!-- Message input -->
+<div class="form-outline mb-4">
+      
+      {{ form_widget(form.commentaire,{'attr':{'class' : 'form-control','rows':'5'}}) }}
+      <label class="form-label" for="form4Example3">Message</label>
+</div>
+
+<!-- Submit button -->
+<button class="btn btn-primary btn-block mb-4">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
