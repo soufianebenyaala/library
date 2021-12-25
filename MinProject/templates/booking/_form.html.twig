@@ -1,0 +1,21 @@
+<div class="card-body">
+{{ form_start(form) }}
+    <div class="row mb-4">
+      <div class="col">
+        <label class="form-label" for="form3Example1">take date</label>
+        <div class="form-outline">
+          {{ form_widget(form.booking_date,{'attr':{'class' : 'form-control'}}) }}
+          
+        </div>
+      </div>
+      <div class="col">
+        <label class="form-label" for="form3Example2">Retrun date</label>
+        <div class="form-outline">
+          {{ form_widget(form.expected_retrun_date,{'attr':{'class' : 'form-control'}}) }}
+          
+        </div>
+      </div>
+    </div> 
+    <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+ {{ form_end(form) }}
+</div>

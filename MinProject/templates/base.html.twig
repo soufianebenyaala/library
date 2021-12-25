@@ -20,6 +20,7 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
           rel="stylesheet"
         />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5/main.min.css">
 
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
@@ -39,16 +40,9 @@
         {% include "Shard/footer.html.twig" %}
 
         <!-- MDB -->
-        <script
-          type="text/javascript"
-          src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
-            <script>
-    $(document).ready(function () {
-      // MDB Lightbox Init
-      $(function () {
-        $("#mdb-lightbox-ui").load("../public/mdb-addons/mdb-lightbox-ui.html");
-      });
-    });
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5/main.min.js"></script>
+
 
 
     </body>

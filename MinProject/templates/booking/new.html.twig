@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Booking{% endblock %}
+
+{% block body %}
+<section style="background-color: #eee;">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col">
+        <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
+          <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active"><a href="#">Booking</a></li>
+            
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div class="row">
+      <div class="container">
+        <div class="card mb-4">
+          <div class="card-body">
+            {{ form_start(form) }}
+              <div class="row mb-4">
+                <div class="col">
+                  <label class="form-label" for="form3Example1">take date</label>
+                  <div class="form-outline">
+                    {{ form_widget(form.booking_date,{'attr':{'class' : 'form-control'}}) }}
+                  </div>
+                </div>
+                <div class="col">
+                  <label class="form-label" for="form3Example2">Retrun date</label>
+                  <div class="form-outline">
+                    {{ form_widget(form.expected_retrun_date,{'attr':{'class' : 'form-control'}}) }}
+                  </div>
+                </div>
+              </div> 
+              <button type="submit" class="btn btn-primary">{{ button_label|default('Save') }}</button>
+            {{ form_end(form) }}
+          </div>
+          <div class="card-body">
+            <div id="calendrier"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block javascripts %}
+<script>
+    window.onload = () => {
+        let calendarElt = document.querySelector("#calendrier")
+        let calendar = new FullCalendar.Calendar(calendarElt, {
+            initialView: 'dayGridMonth',
+            headerToolbar: {
+                start: 'prev,next today',
+                center: 'title',
+                end: 'dayGridMonth,timeGridWeek'
+            },
+            events : {{ data | raw}}
+        })
+
+        calendar.render()
+    }
+</script>
+
+{% endblock %}

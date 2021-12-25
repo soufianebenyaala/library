@@ -61,8 +61,14 @@
                                 <li class="list-group-item">Edituers :{% for edit  in livre.editeur  %}{{edit.nom}} {% endfor %}</li>
                                 {% endif %}
                                 <li class="list-group-item">Categories :{% for cat  in livre.categorie  %}{{cat.nom}} {% endfor %}</li>
-                                <li class="list-group-item">                                
-                                <div class="col"><a href="#" class="btn btn-primary  btn-lg btn-block" >Book Now</a></div></li>
+                                <li class="list-group-item">  
+                                {% if app.user %}
+                                  
+                                  <div class="col"><a href="{{path('booking_new',{'id': livre.id})}}" class="btn btn-primary  btn-lg btn-block" >Book Now</a></div></li>
+                                {% else %}
+                                  <div class="col"><a href="{{path('app_login')}}" class="btn btn-primary  btn-lg btn-block" >Login</a></div></li>
+                                {% endif %}                              
+                                
                               </ul>
                             </div>
                       </div>

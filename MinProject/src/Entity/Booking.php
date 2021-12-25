@@ -40,7 +40,15 @@ class Booking
     /**
      * @ORM\Column(type="date")
      */
-    private $retrun_date_expceted;
+    private $expected_retrun_date;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $BackgroundColor;
+
+
+    
 
     public function getId(): ?int
     {
@@ -95,15 +103,33 @@ class Booking
         return $this;
     }
 
-    public function getRetrunDateExpceted(): ?\DateTimeInterface
+    public function getExpectedRetrunDate(): ?\DateTimeInterface
     {
-        return $this->retrun_date_expceted;
+        return $this->expected_retrun_date;
     }
 
-    public function setRetrunDateExpceted(\DateTimeInterface $retrun_date_expceted): self
+    public function setExpectedRetrunDate(\DateTimeInterface $expected_retrun_date): self
     {
-        $this->retrun_date_expceted = $retrun_date_expceted;
+        $this->expected_retrun_date = $expected_retrun_date;
 
         return $this;
     }
+
+    public function getBackgroundColor(): ?string
+    {
+        return $this->BackgroundColor;
+    }
+
+    public function setBackgroundColor(string $BackgroundColor): self
+    {
+        $this->BackgroundColor = $BackgroundColor;
+
+        return $this;
+    }
+
+    public function getLivreTitle(): ?string
+    {
+        return $this->livre->getTitre();
+    }
+
 }

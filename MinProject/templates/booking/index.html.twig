@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Booking index{% endblock %}
+
+{% block body %}
+    <h1>Booking index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Booking_date</th>
+                <th>Return_date</th>
+                <th>Expected_retrun_date</th>
+                <th>BackgroundColor</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.bookingDate ? booking.bookingDate|date('Y-m-d') : '' }}</td>
+                <td>{{ booking.returnDate ? booking.returnDate|date('Y-m-d') : '' }}</td>
+                <td>{{ booking.expectedRetrunDate ? booking.expectedRetrunDate|date('Y-m-d') : '' }}</td>
+                <td>{{ booking.BackgroundColor }}</td>
+                <td>
+                    <a href="{{ path('booking_show', {'id': booking.id}) }}">show</a>
+                    <a href="{{ path('booking_edit', {'id': booking.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('booking_new') }}">Create new</a>
+{% endblock %}
