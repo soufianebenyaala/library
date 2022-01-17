@@ -22,24 +22,26 @@
 
         <div class="card mb-4">
           <div class="card-body ">
+          <form id="filters">
             <div class="form-outline">
-              <label class="form-label" for="customRange1">Example label</label>
+              <label class="form-label" for="customRange1">Filter</label>
               <input type="range" id="customRange1" class="form-range" />
             </div>
             <h4>Categorie</h4>
             {% for categorie in categories %}
             <div class="form-outline">
-              <input type="checkbox" id="flexCheckChecked" class="form-check-input" autocompleted/>
+              <input type="checkbox" id="cat{{categorie.id}}" name="categories[]" value="{{categorie.id}}" class="form-check-input" autocompleted/>
               <label class="form-check-label" for="flexCheckChecked">{{ categorie.nom }}</label>
             </div>
             {% endfor %}
-            <h4>Author</h4>
+          <!--  <h4>Author</h4>
             {% for auteur in auteurs %}
             <div class="form-outline">
               <input type="checkbox" id="flexCheckChecked" class="form-check-input" autocompleted/>
               <label class="form-check-label" for="flexCheckChecked">{{ auteur.nom }} {{ auteur.prenom }}</label>
             </div>              
-            {% endfor %}
+            {% endfor %}-->
+            </from>
           </div>
         </div>
 
@@ -112,4 +114,8 @@
     </div>
   </div>
 </section>
+{% endblock %}
+
+{% block javascripts %}
+  <script src="{{asset('js/filters.js')}} "> </script>
 {% endblock %}
