@@ -30,7 +30,7 @@ class Review
     private $commentaire;
 
     /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="reviews", unique=true)
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="reviews")
      */
     private $user;
 
