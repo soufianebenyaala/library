@@ -98,7 +98,12 @@
                       <a  href="{{ path('bookdetails',{'id': livre.id}) }}" class="card-link">Book details</a>
                       
                       {% if app.user %}
-                        <a href="{{path('booking_new',{'id': livre.id})}}" class="card-link">Book Now</a>
+                        {% if livre.qtestock == 0 %}
+                         <a href="#" class="card-link link-danger">en rupture</a>
+                        {% else %}
+                           <a href="{{path('booking_new',{'id': livre.id})}}" class="card-link">Book Now</a>
+                        {% endif %}
+                       
                       {% else %}
                         <a href="{{path('app_login')}}" class="card-link">Login</a>
                       {% endif %}       

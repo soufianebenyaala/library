@@ -34,7 +34,10 @@ class BookingController extends AbstractController
         if ($form->isSubmitted() && $form->isValid() ) {
             $entityManager = $this->getDoctrine()->getManager();
 
+            $livre->retireDeQteStock();
+
             $booking->setBackgroundColor("green")
+                    ->setApprover(false)
                     ->setLivre($livre)
                     ->setUser($this->getUser());
 
@@ -104,4 +107,6 @@ class BookingController extends AbstractController
 
         return $this->redirectToRoute('booking_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
 }

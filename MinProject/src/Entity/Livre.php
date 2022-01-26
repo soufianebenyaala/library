@@ -361,4 +361,11 @@ class Livre
 
         return $this;
     }
+
+    public function retireDeQteStock(){
+        return $this->setQteStock($this->getQteStock() - 1);
+    }
+    public function addDeQteStock(){
+        return $this->setQteStock($this->getQteStock() + 1);
+    }
 }

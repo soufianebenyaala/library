@@ -47,6 +47,12 @@ class Booking
      */
     private $BackgroundColor;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $approver;
+
+
 
     
 
@@ -127,9 +133,26 @@ class Booking
         return $this;
     }
 
-    public function getLivreTitle(): ?string
+
+    public function getApprover(): ?bool
+    {
+        return $this->approver;
+    }
+
+    public function setApprover(bool $approver): self
+    {
+        $this->approver = $approver;
+
+        return $this;
+    }
+    public function getLivreTitle()
     {
         return $this->livre->getTitre();
     }
+    public function getLivreId()
+    {
+        return $this->livre->getId();
+    }
+
 
 }
