@@ -20,8 +20,10 @@ class SearchController extends AbstractController
         
         //On verifie si on a une requete Ajax 
         if($request->get('ajax')){
-            return "ok";
+            return "Ok";
         }
+        
+        $livres = $livreRepository->getlivrefilters($filters);
 
         return $this->render('search/index.html.twig', [
             'controller_name' => 'SearchController',

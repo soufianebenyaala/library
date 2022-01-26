@@ -41,7 +41,7 @@ class BookingController extends AbstractController
             $entityManager->persist($booking);
             $entityManager->flush();
 
-            return $this->redirectToRoute('user_show', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('user_show', ['id'=>$this->getUser()], Response::HTTP_SEE_OTHER);
    
         }
         

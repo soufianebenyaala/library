@@ -19,6 +19,17 @@ class LivreRepository extends ServiceEntityRepository
         parent::__construct($registry, Livre::class);
     }
 
+
+    public function getlivrefilters($filters)
+    {
+        $query = $this->createQueryBuilder('l');
+
+        // on filter les donnees
+        if($filters != null){
+            $query->andwhere('a.categories IN(:)');
+        }
+    }
+    
     // /**
     //  * @return Livre[] Returns an array of Livre objects
     //  */

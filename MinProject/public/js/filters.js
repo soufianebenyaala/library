@@ -21,7 +21,7 @@ window.onload = () => {
             // On lance la requete ajax
             fetch(url.pathname + "?" + Params.toString() + "&ajax=1",{
                 headers:{
-                    "X-Requested-with" : "XMLHttpRequest"
+                    "X-Requested-With": "XMLHttpRequest"
                 }
             }).then(response => {
                 console.log(response);
