@@ -17,10 +17,11 @@ class SearchController extends AbstractController
     #[Route('/search', name: 'search')]
     public function index(Request $request ,AuteurRepository $auteurRepository, CategorieRepository $categorieRepository,LivreRepository $livreRepository): Response
     {
+        $searchh = $request->query->get('search');
         //On recupere les filtres
         $filters = $request->get("categories");
         
-        $livres = $livreRepository->getlivrefilters($filters);
+        $livres = $livreRepository->getlivrefilters($filters,$searchh);
       
         
         

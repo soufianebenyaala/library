@@ -11,9 +11,11 @@
             <h1 class="mb-3">The whole library is in your hand</h1>
             <h5 class="mb-4">Find your Book & enjoy it</h5>
               <div class="input-group">
-                <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-                aria-describedby="search-addon" />
-                <button href="{{path('app_home')}}" type="button" class="btn btn-outline-white">search</button>
+                {{ form_start(form) }}
+                {{ form_widget(form.field_name,{'attr':{'class' : 'form-control rounded'}}) }}
+                <!-- <input type="search" class="" placeholder="Search" aria-label="Search"aria-describedby="search-addon" />-->
+                <button type="submit" class="btn btn-outline-white">search</button>
+                {{ form_end(form) }}
               </div>
           </div>
         </div>
