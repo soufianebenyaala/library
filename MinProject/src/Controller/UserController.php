@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Booking;
 use App\Entity\User;
 use App\Form\EditeUserType;
 use App\Form\UserType;
+use App\Repository\BookingRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,10 +46,12 @@ class UserController extends AbstractController
     }
 
     #[Route('/{id}', name: 'user_show', methods: ['GET'])]
-    public function show(User $user): Response
+    public function show(User $user,BookingRepository $bookingRepository): Response
     {
+        $bookings = $bookingRepository->findBy(["user" => $user]);
         return $this->render('user/show.html.twig', [
             'user' => $user,
+            'bookings'=> $bookings,
         ]);
     }
 
