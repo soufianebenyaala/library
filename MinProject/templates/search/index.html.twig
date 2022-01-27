@@ -46,7 +46,10 @@
       </div>
 
       <div class="col-lg-9">
-        <div class="row">
+
+        <div class="row" id="content">
+         {% include "search/_content.html.twig" %}
+                 <div class="row">
           {% for livre in livres %}
             <div class="col-md-3 mb-4">
               <div class="card mb-4 mb-md-0">
@@ -84,6 +87,7 @@
               </div>
             </div>
           {% endfor %}
+
 
 
         </div>

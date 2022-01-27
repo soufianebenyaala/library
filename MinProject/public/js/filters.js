@@ -23,9 +23,14 @@ window.onload = () => {
                 headers:{
                     "X-Requested-With": "XMLHttpRequest"
                 }
-            }).then(response => {
-                console.log(response);
-            }).catch(e => alert(e))
+            }).then(
+                response => response.json() 
+
+            ).then(
+                data => {
+                    const content = document.querySelector("#content");
+                    content.innerHTML =data.content;                                }
+            ).catch(e => alert(e))
         })
     })
 }

@@ -1,0 +1,32 @@
+ {% for livre in livres %}
+            <div class="col-md-3 mb-4">
+              <div class="card mb-4 mb-md-0">
+                  <div class="card" >
+                    <img
+                      src="images/book{{asset(livre.image)}}"
+                      class="card-img-top"
+                      height="300px"
+                      alt="Chicago Skyscrapers "
+                    />
+                      <!--<div class="card-body">
+                      <h5 class="card-title">Titre : {{ livre.titre }}</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                    
+                    <li class="list-group-item">Author : {% for aut  in livre.auteur  %}{{aut.nom}} {{aut.prenom}} {% endfor %}</li>
+                      <li class="list-group-item">Numbre of page : {{ livre.nbrpage }}</li>
+                      <li class="list-group-item">Categories :{% for cat  in livre.categorie  %}{{cat.nom}} {% endfor %}</li>-->
+                    </ul>
+                    <div class="card-body">
+                      <a  href="{{ path('bookdetails',{'id': livre.id}) }}" class="card-link">Book details</a>
+                      
+                      {% if app.user %}
+                        <a href="{{path('booking_new',{'id': livre.id})}}" class="card-link">Book Now</a>
+                      {% else %}
+                        <a href="{{path('app_login')}}" class="card-link">Login</a>
+                      {% endif %}       
+                    </div>
+                  </div>
+              </div>
+            </div>
+          {% endfor %}

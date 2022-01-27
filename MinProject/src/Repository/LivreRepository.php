@@ -20,15 +20,18 @@ class LivreRepository extends ServiceEntityRepository
     }
 
 
-    public function getlivrefilters($filters)
+    public function getlivrefilters($filters = null)
     {
         $query = $this->createQueryBuilder('l');
 
         // on filter les donnees
         if($filters != null){
-            $query->andwhere('a.categories IN(:)');
+            $query->andwhere('l.categories IN(:cats)')->setParameter(':cats',
+            array_values($filters));
         }
+        return $query->getQuery()->execute();
     }
+   
     
     // /**
     //  * @return Livre[] Returns an array of Livre objects
